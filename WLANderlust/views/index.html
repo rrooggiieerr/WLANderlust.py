@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WLANderlust</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/WLANderlust.css"/>
+		<style>
+			#interfaces {
+			}
+
+			.tab {
+				border-style: solid;
+				border-width: 1px;
+				border-color: black;
+			}
+
+			.tab.selected {
+				border-color: black black white black;
+			}
+
+			.interfaceStatus {
+				font-size: 0.9em;
+				height: 10em; /* 8 x 1,25 * 10 */
+				border-style: solid;
+				border-width: 1px;
+				display: none
+			}
+
+			#interfaceStatus, #networkStatus {
+				display: none
+			}
+
+			.scan, .down, .disconnected, .wired, .nocable, .wifi, .mobile, .bluetooth {
+				display: none;
+			}
+
+			.ip, .noip, .nocaptiveportal, .captiveportalpresent, .solvecaptiveportal, .solvedcaptiveportal, .tunnelinactive, .starttunnel, .tunnelactive, .tunnelerror, .vpninactive, .startvpn, .vpnactive, .noexternalipaddress, .hasexternalipaddress, .onlinesince {
+				display: none;
+			}
+
+			#networks .networkStatus:nth-child(2n) {
+				background: whitesmoke;
+			}
+
+			#networks .ssid {
+				font-size: 1.2em;
+				clear: both;
+			}
+
+			#networks .channel, #networks .quality, #networks .signal, #networks .distance, #networks .encryption, #networks .captiveportal {
+				display: inline-block;
+				padding-right: 0.1em;
+			}
+
+			#networks .channel {
+				width: 1em;
+				text-align: right;
+			}
+
+			#networks .signal::before {
+				content: '\1F4F6';
+			}
+
+			#networks .encryption::before {
+				content: '\1F512';
+			}
+
+			#networks .encryption.none::before {
+				content: '\1F513';
+			}
+
+			#networks .captiveportal::before {
+				content: '\1F6AA';
+			}
+
+			#networks .bssid {
+				display: none;
+			}
+
+			#networks .connect {
+				position: absolute;
+				right: 0px;
+				top: 0px;
+			}
+				
+			#networks .known {
+				color: green;
+			}
+
+			#networks a.solvable {
+				color: green;
+			}
+
+			.interfaceStatus form {
+				display: inline
+			}
+		</style>
+		<script src="/jquery.js"></script>
+		<script src="/WLANderlust.js"></script>
+		<script src="/index.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="header">
+				<h1>WLANderlust</h1>
+				<h2>Not all those who WLANder have lost connection</h2>
+			</div>
+			<div id="interfaces"></div>
+			<div id="interfaceStatus" class="interfaceStatus">
+				<div class="down">Down</div>
+				<div class="disconnected">Disconnected</div>
+				<div class="wired">Connected</div>
+				<div class="nocable">Cable not connected</div>
+				<div class="wifi">Connected to <span class="ssid"></span> (<span class="bssid"></span>)</div>
+				<div class="mobile">Connected</div>
+				<div class="bluetooth">Connected</div>
+				<div class="ip">IP address: <span class="ipaddress"></span> Netmask: <span class="netmask"></span> Gateway: <span class="gateway"></span></div>
+				<div class="noip">No IP address assigned</div>
+				<div class="nocaptiveportal">No Captive Portal present</div>
+				<div class="captiveportalpresent">Captive Portal <span class="captiveportaltype"></span> <button type='button' class="solvecaptiveportal">Solve captive portal</button></div>
+				<div class="solvedcaptiveportal">Captive Portal solved <span class="captiveportaltype"></span></div>
+				<div class="tunnelinactive">IP tunneling not active</div>
+				<div class="tunnelactive">IP tunneling active <button type='button' class="stoptunnel">Stop IP tunnel</button></div>
+				<div class="tunnelerror" style="error">IP tunneling error <button type='button' class="stoptunnel">Stop IP tunnel</button></div>
+				<div class="vpninactive">VPN disconnected</div>
+				<div class="vpnactive">VPN connected <button type='button' class="stopvpn">Stop VPN</button></div>
+				<div class="noexternalipaddress">No external IP address</div>
+				<div class="hasexternalipaddress">External IP address: <span class="externalipaddress"></span></div>
+				<div class="onlinesince">Online since <span class="time"></span></div>
+			</div>
+			<div id="location"><span id="latitude"></span> <span id="longitude"></span> <span id="speed"></span></div>
+			<div id="intro"></div>
+			<div id="networks">
+			</div>
+			<a href="/settings">Settings</a>
+			<div id="footer"></div>
+			<div id="addWPACredential" class="addCredential overlay">
+				<form action="#" method="post">
+					<table>
+						<tr><td>BSSID</td><td class="bssid"></td></tr>
+						<tr><td>SSID</td><td class="ssid"></td></tr>
+						<tr><td><label for="wpapassphrase">WPA Passphrase</label></td><td><input type="password" name="wpapassphrase" minlength="8" maxlength="63"/></td></tr>
+						<tr><td><label for="share">Share</label></td><td><input type="checkbox" name="share" value="True"/></td></tr>
+					</table>
+					<input type="submit" value="Connect"/><button class="cancel">Cancel</button>
+				</form>
+			</div>
+			<div id="addWPA2Credential" class="addCredential overlay">
+				<form action="#" method="post">
+					<table>
+						<tr><td>BSSID</td><td class="bssid"></td></tr>
+						<tr><td>SSID</td><td class="ssid"></td></tr>
+						<tr><td><label for="wpa2passphrase">WPA2 Passphrase</label></td><td><input type="password" name="wpa2passphrase" minlength="8" maxlength="63"/></td></tr>
+						<tr><td><label for="share">Share</label></td><td><input type="checkbox" name="share" value="True"/></td></tr>
+					</table>
+					<input type="submit" value="Connect"/><button class="cancel">Cancel</button>
+				</form>
+			</div>
+			<div id="addWEPCredential" class="addCredential overlay">
+				<form action="#" method="post">
+					<table>
+						<tr><td>BSSID</td><td class="bssid"></td></tr>
+						<tr><td>SSID</td><td class="ssid"></td></tr>
+						<tr><td><label for="wepkey0">WEP Key 0</label></td><td><input type="password" name="wepkey0" pattern="([0-9a-fA-F]{10}|[0-9a-fA-F]{26}|[0-9a-fA-F]{58})"/></td></tr>
+						<tr><td><label for="wepkey1">WEP Key 1</label></td><td><input type="password" name="wepkey1" pattern="^(?=(?:.{10}|.{26}|.{58})$)[0-9a-fA-F]*$"/></td></tr>
+						<tr><td><label for="wepkey2">WEP Key 2</label></td><td><input type="password" name="wepkey2" pattern="([0-9a-fA-F]{10}|[0-9a-fA-F]{26}|[0-9a-fA-F]{58})"/></td></tr>
+						<tr><td><label for="wepkey3">WEP Key 3</label></td><td><input type="password" name="wepkey3" pattern="([0-9a-fA-F]{10}|[0-9a-fA-F]{26}|[0-9a-fA-F]{58})"/></td></tr>
+						<tr><td><label for="share">Share</label></td><td><input type="checkbox" name="share" value="True"/></td></tr>
+					</table>
+					<input type="submit" value="Connect"/><button class="cancel">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
