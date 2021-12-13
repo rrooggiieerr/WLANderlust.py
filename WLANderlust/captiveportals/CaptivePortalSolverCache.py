@@ -83,7 +83,7 @@ class CaptivePortalSolverCache():
       entry = cur.fetchone()
 
       if entry:
-        logger.debug("Captive Portal Solcer cache entry for %s found: %s" % (bssid, entry))
+        logger.debug("Captive Portal Solver cache entry for %s found: %s" % (bssid, entry))
         solver = entry[0]
       #else:
       #  logger.debug("No Captive Portal Solver cache entry found for %s" % bssid)
