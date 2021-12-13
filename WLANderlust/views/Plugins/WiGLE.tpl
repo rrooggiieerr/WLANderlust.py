@@ -23,7 +23,7 @@
 					<table id="settings">
 						<tr>
 							<td><label for="apitoken">API Token</label></td>
-							<td><input type="text" id="apitoken" name="apitoken" value="{{apitoken}}"/></td>
+							<td><input type="text" id="apitoken" name="apitoken" value="{{apitoken}}" autocomplete="off"/></td>
 						</tr>
 					</table>
 					<input type="submit" value="Save WiGLE settings"/>

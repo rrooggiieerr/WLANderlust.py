@@ -60,9 +60,9 @@
 		<div id="addCredential" class="addCredential overlay">
 			<form action="/CaptivePortals/Curl/add" method="post">
 				<table>
-					<tr><td><label for="bssid">BSSID</label></td><td><input type="text" id="bssid" name="bssid"/></td></tr>
-					<tr><td><label for="ssid">SSID</label></td><td><input type="text" id="ssid" name="ssid"/></td></tr>
-					<tr><td><label for="domain">Domain</label></td><td><input type="text" id="domain" name="domain"/></td></tr>
+					<tr><td><label for="bssid">BSSID</label></td><td><input type="text" id="bssid" name="bssid" autocomplete="off"/></td></tr>
+					<tr><td><label for="ssid">SSID</label></td><td><input type="text" id="ssid" name="ssid" autocomplete="off"/></td></tr>
+					<tr><td><label for="domain">Domain</label></td><td><input type="text" id="domain" name="domain" autocomplete="off"/></td></tr>
 					<tr><td><label for="url">URL</label></td><td><input id="url" type="url" name="url"/></td></tr>
 					<tr><td><label for="share">Share</label></td><td><input type="checkbox" id="share" name="share" value="True"/></td></tr>
 				</table>

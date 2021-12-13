@@ -28,11 +28,11 @@
 					<table id="settings">
 						<tr>
 							<td><label for="username">Username</label></td>
-							<td><input type="text" id="username" name="username" value="{{username}}"/></td>
+							<td><input type="text" id="username" name="username" value="{{username}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="password">Password</label></td>
-							<td><input type="password" id="password" name="password" value="{{password}}"/></td>
+							<td><input type="password" id="password" name="password" value="{{password}}" autocomplete="off"/></td>
 						</tr>
 					</table>
 					<input type="submit" value="Save Fon settings"/>

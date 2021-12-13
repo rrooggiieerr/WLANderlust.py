@@ -30,7 +30,7 @@
 						</tr>
 						<tr>
 							<td><label for="DetectionResponse">Detection response</label></td>
-							<td><input type="text" id="DetectionResponse" name="DetectionResponse" value="{{DetectionResponse}}"/></td>
+							<td><input type="text" id="DetectionResponse" name="DetectionResponse" value="{{DetectionResponse}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="Logging">Log Captive Portals</label></td>
@@ -38,7 +38,7 @@
 						</tr>
 						<tr>
 							<td><label for="LogPath">Captive Portals log path</label></td>
-							<td><input type="text" id="LogPath" name="LogPath" value="{{LogPath}}"/></td>
+							<td><input type="text" id="LogPath" name="LogPath" value="{{LogPath}}" autocomplete="off"/></td>
 						</tr>
 					</table>
 					<input type="submit" value="Save Captive Portals settings"/>

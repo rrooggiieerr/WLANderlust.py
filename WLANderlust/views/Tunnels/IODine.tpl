@@ -27,10 +27,10 @@
 						</script>
 						<tr>
 							<td><label for="IODine_topdomain">DNS top domain</label></td>
-							<td><input type="text" id="IODine_topdomain" name="topdomain" value="{{get('topdomain', '')}}"/></td>
+							<td><input type="text" id="IODine_topdomain" name="topdomain" value="{{get('topdomain', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="IODine_password">Password</label></td>
-							<td><input type="password" id="IODine_password" name="password" value="{{get('password', '')}}"/></td>
+							<td><input type="password" id="IODine_password" name="password" value="{{get('password', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr><td colspan="2"><div id="IODine_stdout" style="white-space: pre-wrap;"></div></td></tr>
