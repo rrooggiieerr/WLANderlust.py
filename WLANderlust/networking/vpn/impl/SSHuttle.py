@@ -33,7 +33,7 @@ class SSHuttle(Proxy):
   def install(self):
     if not os.path.isfile(self.executable):
       self.logger.info("Installing %s" % self.name)
-      subprocess.call(['/usr/bin/apt-get', 'install', '-y', 'sshuttle'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+      subprocess.call(['/usr/bin/apt', 'install', '-y', 'sshuttle'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     return True
 
   def isConfigured(self):
