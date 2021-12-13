@@ -1,6 +1,8 @@
-import re
+import re, logging
 
 from WLANderlust.captiveportals import CaptivePortalSolverImpl, CaptivePortalSolverCache
+
+logger = logging.getLogger(__name__)
 
 class WISPA(CaptivePortalSolverImpl):
   name = "WISPA"
