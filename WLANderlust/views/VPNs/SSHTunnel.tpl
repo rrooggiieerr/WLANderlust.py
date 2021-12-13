@@ -12,11 +12,11 @@
 						</script>
 						<tr>
 							<td><label for="SSHTunnel_username">Username</label></td>
-							<td><input type="text" id="SSHTunnel_username" name="username" value="{{get('username', '')}}"/></td>
+							<td><input type="text" id="SSHTunnel_username" name="username" value="{{get('username', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHTunnel_hostname">Server Hostname</label></td>
-							<td><input type="text" id="SSHTunnel_hostname" name="hostname" value="{{get('hostname', '')}}"/></td>
+							<td><input type="text" id="SSHTunnel_hostname" name="hostname" value="{{get('hostname', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHTunnel_port">Port</label></td>
@@ -24,19 +24,19 @@
 						</tr>
 						<tr>
 							<td><label for="SSHTunnel_ipaddress">IP Address</label></td>
-							<td><input type="text" id="SSHTunnel_ipaddress" name="ipaddress" value="{{get('ipaddress', '')}}"/></td>
+							<td><input type="text" id="SSHTunnel_ipaddress" name="ipaddress" value="{{get('ipaddress', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHTunnel_netmask">Netmask</label></td>
-							<td><input type="text" id="SSHTunnel_netmask" name="netmask" value="{{get('netmask', '')}}"/></td>
+							<td><input type="text" id="SSHTunnel_netmask" name="netmask" value="{{get('netmask', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHTunnel_gateway">Gateway</label></td>
-							<td><input type="text" id="SSHTunnel_gateway" name="gateway" value="{{get('gateway', '')}}"/></td>
+							<td><input type="text" id="SSHTunnel_gateway" name="gateway" value="{{get('gateway', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<div id="SSHTunnel_publickey"><span id="SSHTunnel_generating">Generating...</span></div>
+								<div id="SSHTunnel_publickey" style="width: 200px"><span id="SSHTunnel_generating">Generating...</span></div>
 								<div>Place this public key in the authorized_keys file of the SSH server.<br/>
 								<button id="SSHTunnel_copyPublicKey" disabled>Copy public key to clipboard</button></div>
 							</td>

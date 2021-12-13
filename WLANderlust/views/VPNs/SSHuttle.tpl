@@ -12,11 +12,11 @@
 						</script>
 						<tr>
 							<td><label for="SSHuttle_username">Username</label></td>
-							<td><input type="text" id="SSHuttle_username" name="username" value="{{get('username', '')}}"/></td>
+							<td><input type="text" id="SSHuttle_username" name="username" value="{{get('username', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHuttle_hostname">Server Hostname</label></td>
-							<td><input type="text" id="SSHuttle_hostname" name="hostname" value="{{get('hostname', '')}}"/></td>
+							<td><input type="text" id="SSHuttle_hostname" name="hostname" value="{{get('hostname', '')}}" autocomplete="off"/></td>
 						</tr>
 						<tr>
 							<td><label for="SSHuttle_port">Port</label></td>
