@@ -4,14 +4,14 @@ installPackageThread = None
 logger = logging.getLogger(__name__)
 stdout = ""
 
-#apt-get update
-#apt-get -y dist-upgrade
+#apt update
+#apt -y dist-upgrade
 
 def installPackageThreadImpl(package):
   global stdout
 
   logger.info("Installing %s" % package)
-  #subprocess.Popen(['/usr/bin/apt-get', 'install', '-y', package], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+  #subprocess.Popen(['/usr/bin/apt', 'install', '-y', package], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
   #proc = subprocess.Popen(['/bin/true'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
   proc = subprocess.Popen(['/bin/cat', '/etc/rsyslog.conf'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
   stdout = ""
