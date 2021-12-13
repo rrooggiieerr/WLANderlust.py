@@ -123,18 +123,22 @@ class BSSIDLocationCache():
   def onlineLookupThreadImpl(self):
     self.logger.info("Starting online BSSID location lookup thread")
 
+    queueSize = 0
     while not self.terminate:
       if self.pauseOnlineLookup:
         time.sleep(0.1)
         continue
 
-      if len(self.bssidLookupQueue) == 0:
-        self.logger.debug("BSSID lookup queue is empty")
+      if queueSize != len(self.bssidLookupQueue):
+        queueSize = len(self.bssidLookupQueue)
+        if queueSize == 0:
+          self.logger.debug("BSSID lookup queue is empty")
+        if queueSize > 0:
+          self.logger.debug("BSSID lookup queue contains %s item(s)" % queueSize)
+
+      if queueSize == 0:
         time.sleep(0.1)
         continue
-
-      if len(self.bssidLookupQueue) > 0:
-        self.logger.debug("BSSID lookup queue contains %s item(s)" % len(self.bssidLookupQueue))
 
       bssid, signal = self.bssidLookupQueue[0]
 
