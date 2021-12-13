@@ -8,8 +8,8 @@ from WLANderlust import BSSIDLocationCache
 logger = logging.getLogger(__name__)
 
 ipLocationConfigs = {
-	'ip-api.com': { 'url': 'http://ip-api.com/json', 'latitudeKey': 'lat', 'longitudeKey': 'lon', 'needsRegistrationKey': False},
-	'ipapi.co': { 'url': 'https://ipapi.co/json/', 'latitudeKey': 'latitude', 'longitudeKey': 'longitude', 'needsRegistrationKey': False}
+  'ip-api.com': { 'url': 'http://ip-api.com/json', 'latitudeKey': 'lat', 'longitudeKey': 'lon', 'needsRegistrationKey': False},
+  'ipapi.co': { 'url': 'https://ipapi.co/json/', 'latitudeKey': 'latitude', 'longitudeKey': 'longitude', 'needsRegistrationKey': False}
 }
 
 class GPS():
